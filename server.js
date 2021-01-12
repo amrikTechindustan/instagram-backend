@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
-// const bodyParser = require('body-parser');
-// const cors = require('cors');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const PORT = 5000;
 const {MONGOURI} =require('./keys')
-
+app.use(bodyParser.json())
+app.use(cors())
+app.use(express.json())
 mongoose.connect(MONGOURI,{
     useNewUrlParser:true,
     useUnifiedTopology:true
